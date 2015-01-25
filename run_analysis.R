@@ -1,0 +1,42 @@
+library(data.table)
+getwd()
+train.x <- read.table("./UCI HAR Dataset//train//X_train.txt",head=FALSE)
+test.x <- read.table("./UCI HAR Dataset//test//X_test.txt",head=FALSE)
+feature <- read.table("./UCI HAR Dataset//features.txt",head=FALSE)
+feature <- as.vector(feature[,2])
+alldata.x <- rbind(train.x,test.x)
+colnames(alldata.x) <- feature
+head(alldata[,c(1,2,562)],n=3)
+extractdata.x <- subset(alldata.x,,select=grep("mean\\(\\)|std\\(\\)",colnames(alldata.x)))
+train.y <- read.table("./UCI HAR Dataset//train//y_train.txt",head=FALSE)
+test.y <- read.table("./UCI HAR Dataset//test//y_test.txt",head=FALSE)
+alldata.y <- rbind(train.y,test.y)
+activity.label <- read.table("./UCI HAR Dataset//activity_labels.txt",head=FALSE)
+alldata.y <- factor(as.vector(t(alldata.y)),levels=as.vector(activity.label[,1]),labels=as.vector(activity.label[,2]))
+extractdata <- cbind(as.data.frame(alldata.y),extractdata.x)
+train.subject <- read.table("./UCI HAR Dataset//train//subject_train.txt",head=FALSE)
+test.subject <- read.table("./UCI HAR Dataset//test//subject_test.txt",head=FALSE)
+alldata.subject <- rbind(train.subject,test.subject)
+extractdata <- cbind(alldata.subject,extractdata)
+colnames(extractdata) <- c("subject","activity",colnames(extractdata.x))
+
+
+melt(extractdata,c(1,2),c(3:ncol(extractdata)))
+c(3:5)
+library(reshape2)
+install.packages("Hmisc")
+label(alldata.y)
+as.vector(activity.label[,2])
+summary(alldata.subject)
+class(alldata.y)
+ncol(extractdata)
+alldata.y
+head(as.data.frame(alldata.y))
+
+colnames(alldata) <- c(colnames(alldata.x),"activity")
+
+
+head([,562],n=3)
+length(feature)
+class(alldata)
+?melt
