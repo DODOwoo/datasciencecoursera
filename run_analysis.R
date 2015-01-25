@@ -19,24 +19,3 @@ test.subject <- read.table("./UCI HAR Dataset//test//subject_test.txt",head=FALS
 alldata.subject <- rbind(train.subject,test.subject)
 extractdata <- cbind(alldata.subject,extractdata)
 colnames(extractdata) <- c("subject","activity",colnames(extractdata.x))
-
-
-melt(extractdata,c(1,2),c(3:ncol(extractdata)))
-c(3:5)
-library(reshape2)
-install.packages("Hmisc")
-label(alldata.y)
-as.vector(activity.label[,2])
-summary(alldata.subject)
-class(alldata.y)
-ncol(extractdata)
-alldata.y
-head(as.data.frame(alldata.y))
-
-colnames(alldata) <- c(colnames(alldata.x),"activity")
-
-
-head([,562],n=3)
-length(feature)
-class(alldata)
-?melt
